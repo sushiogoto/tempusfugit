@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :weeks
+
+  # WEEKS TO LIVE
+  # BIRTHDAY
 end

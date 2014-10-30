@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141030102231) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "week_number"
+    t.integer  "year"
   end
 
   add_index "weeks", ["user_id"], name: "index_weeks_on_user_id"
