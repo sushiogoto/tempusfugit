@@ -6,6 +6,8 @@ class WeeksController < ApplicationController
   def index
     @weeks = Week.all
     @life_in_years = 80
+    @years_lived = 25
+    @years_remaining = @life_in_years - @years_lived
   end
 
   def weeks_table

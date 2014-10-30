@@ -30,9 +30,18 @@
 
 <br>
 
-<% (0..@life_in_years).each do |i| %>
+<% (0..@years_lived).each do |i| %>
+<div class="row">
 <% (0..52).each do |x| %>
-<div class='sq dec alive'></div>
+<div class='sq alive live'></div>
 <% end %>
+</div>
+<% end %>
+<% (0..@years_remaining).each do |i| %>
+<div class="row">
+<% (0..52).each do |x| %>
+<div class='sq alive remain'></div>
+<% end %>
+</div>
 <% end %>
 
