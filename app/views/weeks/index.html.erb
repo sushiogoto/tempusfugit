@@ -1,9 +1,17 @@
 <h1>Listing weeks</h1>
 
-<% (0..@total_weeks).each do |i| %>
+<% (0..@weeks_lived).each do |i| %>
   <div class="row">
     <% (0..52).each do |x| %>
       <div class='sq alive live'></div>
+    <% end %>
+  </div>
+<% end %>
+
+<% (0..@weeks_left).each do |i| %>
+  <div class="row">
+    <% (0..52).each do |x| %>
+      <div class='sq alive remain'></div>
     <% end %>
   </div>
 <% end %>

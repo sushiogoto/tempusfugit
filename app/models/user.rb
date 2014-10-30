@@ -13,11 +13,16 @@ class User < ActiveRecord::Base
     def add_info
       @current_week = 1
       @birthday = self.birthday
-      @birthday2 = self.birthday + 80000000
-      @life_in_days = (@birthday2.to_date - @birthday.to_date).to_i
-      @life_in_weeks = @life_in_days/7
-
+      @deathday = self.birthday + 80000000
       @date_today = Time.now
+      @life_in_days = (@deathday.to_date - @birthday.to_date).to_i
+      @life_in_weeks = @life_in_days/7
+      @days_lived = (@date_today.to_date - @birthday.to_date).to_i
+      self.deathday = @deathday
+
+
+
+
       @year_today = @date_today.strftime("%Y")
       # :birthday = :birthday + @current_week * 7
 
