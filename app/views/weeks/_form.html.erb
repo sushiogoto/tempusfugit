@@ -1,0 +1,29 @@
+<%= form_for(@week) do |f| %>
+  <% if @week.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@week.errors.count, "error") %> prohibited this week from being saved:</h2>
+
+      <ul>
+      <% @week.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mood %><br>
+    <%= f.number_field :mood %>
+  </div>
+  <div class="field">
+    <%= f.label :significance %><br>
+    <%= f.number_field :significance %>
+  </div>
+  <div class="field">
+    <%= f.label :journal %><br>
+    <%= f.text_area :journal %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
