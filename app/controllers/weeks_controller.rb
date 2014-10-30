@@ -1,10 +1,11 @@
 class WeeksController < ApplicationController
-  before_action :set_week, only: [:show, :edit, :update, :destroy]
+  before_action :set_week, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /weeks
   # GET /weeks.json
   def index
-    @weeks = Week.all
+    @weeks = current_user.weeks
     @life_in_years = 80
     @years_lived = 25
     @years_remaining = @life_in_years - @years_lived
@@ -13,12 +14,6 @@ class WeeksController < ApplicationController
   def weeks_table
     # @life_in_years = 80
     # @life_in_weeks = (0..80).map { |x| x = (0..52).map { |y| y } }
-  end
-
-
-  # GET /weeks/1
-  # GET /weeks/1.json
-  def show
   end
 
   # GET /weeks/new
@@ -34,10 +29,11 @@ class WeeksController < ApplicationController
   # POST /weeks.json
   def create
     @week = Week.new(week_params)
+    @week.user = current_user
 
     respond_to do |format|
       if @week.save
-        format.html { redirect_to @week, notice: 'Week was successfully created.' }
+        format.html { redirect_to weeks_path, notice: 'Week was successfully created.' }
         format.json { render :show, status: :created, location: @week }
       else
         format.html { render :new }
@@ -78,6 +74,6 @@ class WeeksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def week_params
-      params.require(:week).permit(:mood, :significance, :journal)
+      params.require(:week).permit(:mood, :significance, :journal, :week_number)
     end
 end

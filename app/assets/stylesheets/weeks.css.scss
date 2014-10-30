@@ -7,8 +7,16 @@
   height: 10px;
   padding: 1px;
   margin: 1px;
-  background: green;
+  background: blue;
   float: left;
+}
+
+.good {
+  background: green;
+}
+
+.bad {
+  background: red;
 }
 
 .remain {
