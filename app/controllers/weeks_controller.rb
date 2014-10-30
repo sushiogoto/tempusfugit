@@ -5,7 +5,14 @@ class WeeksController < ApplicationController
   # GET /weeks.json
   def index
     @weeks = Week.all
+    @life_in_years = 80
   end
+
+  def weeks_table
+    # @life_in_years = 80
+    # @life_in_weeks = (0..80).map { |x| x = (0..52).map { |y| y } }
+  end
+
 
   # GET /weeks/1
   # GET /weeks/1.json

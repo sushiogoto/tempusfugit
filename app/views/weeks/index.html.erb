@@ -27,3 +27,12 @@
 <br>
 
 <%= link_to 'New Week', new_week_path %>
+
+<br>
+
+<% (0..@life_in_years).each do |i| %>
+<% (0..52).each do |x| %>
+<div class='sq dec alive'></div>
+<% end %>
+<% end %>
+
