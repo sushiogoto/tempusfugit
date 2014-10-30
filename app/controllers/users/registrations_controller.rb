@@ -1,4 +1,4 @@
-class User::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
@@ -8,19 +8,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    @date = Time.now
-    @date.strftime("%B %d, %Y")
-    @weeks_to_live = 2
-    @current_week = 1
-    @year = Time.now
-    @year = @year.strftime("%Y")
-    # :birthday = :birthday + @current_week * 7
-    (0..@weeks_to_live).each do  |week|
-      current_user.weeks << Week.new(mood: 0, significance: 3, journal: "text", week_number: @current_week, year: @year)
-    end
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
