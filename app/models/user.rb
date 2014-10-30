@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
       @weeks_to_live = 2
       @current_week = 1
 
-      @date = Time.now.strftime("%B %d, %Y")
-      @year = Time.now.strftime("%Y")
+      @date_today = Time.now
+      @year_today = @date_today.strftime("%Y")
       # :birthday = :birthday + @current_week * 7
 
       (0..@weeks_to_live).each do  |week|
