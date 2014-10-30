@@ -6,6 +6,7 @@ class WeeksController < ApplicationController
   # GET /weeks.json
   def index
     @weeks = current_user.weeks
+    @total_weeks = @weeks.length
     @year_now = Time.now
     @year_now.strftime("%Y").to_i
     # @week_now = Time.now

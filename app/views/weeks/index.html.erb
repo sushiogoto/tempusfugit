@@ -1,37 +1,6 @@
 <h1>Listing weeks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Mood</th>
-      <th>Significance</th>
-      <th>Journal</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @weeks.each do |week| %>
-      <tr>
-        <td><%= week.mood %></td>
-        <td><%= week.significance %></td>
-        <td><%= week.journal %></td>
-        <td><%= link_to 'Show', week %></td>
-        <td><%= link_to 'Edit', edit_week_path(week) %></td>
-        <td><%= link_to 'Destroy', week, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Week', new_week_path %>
-
-<br>
-
-
-<% (0..@years_lived).each do |i| %>
+<% (0..@total_weeks).each do |i| %>
   <div class="row">
     <% (0..52).each do |x| %>
       <div class='sq alive live'></div>
@@ -39,11 +8,4 @@
   </div>
 <% end %>
 
-<% (0..@years_remaining).each do |i| %>
-  <div class="row">
-    <% (0..52).each do |x| %>
-      <div class='sq alive remain'></div>
-    <% end %>
-  </div>
-<% end %>
 
