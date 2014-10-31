@@ -18,8 +18,7 @@
   <div><%= f.label :country %><br />
     <%= f.country_select :country_code, as: :country %></div>
 
-  <div><%= f.hidden_field :life_expectancy, value: @life_expectancy %></div>
-  <%= puts @life_expectancy %>
+  <div><%= f.hidden_field :life_expectancy, value: nil %></div>
 
   <div><br /><%= f.submit "Sign up" %></div>
 <% end %>
