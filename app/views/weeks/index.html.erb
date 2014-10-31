@@ -1,20 +1,14 @@
-<h1>Listing weeks</h1>
+<h1>YOUR LIFE IN WEEKS</h1>
 
 <div class="weeks_table">
-  <% (0..@weeks_lived).each do |i| %>
-    <div class="row">
-      <% (0..52).each do |x| %>
-        <div class='sq alive live'></div>
-      <% end %>
-    </div>
-  <% end %>
 
-  <% (0..@weeks_left).each do |i| %>
-    <div class="row">
-      <% (0..52).each do |x| %>
+  <div class="row">
+    <% (0..@weeks_lived).each do |week| %>
+        <div class='sq alive live'></div>
+    <% end %>
+
+    <% (0..@weeks_left).each do |week| %>
         <div class='sq alive remain'></div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 

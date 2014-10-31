@@ -18,6 +18,8 @@ $ ->
       $("form#new_user").trigger('submit.rails')
 
 
+
+# testing .change jquery but needs three more changes maybe later
 # $ ->
 #   $("#user_birthday_1i").change ->
 #     alert('sup')

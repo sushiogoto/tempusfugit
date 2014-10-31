@@ -10,12 +10,13 @@ class WeeksController < ApplicationController
     @year_now = Time.now
     @year_now.strftime("%Y").to_i
     @birthday = current_user.birthday
-    @deathday = current_user.birthday + 800000000
+    # @deathday = current_user.birthday + 800000000
     @date_today = Time.now
-    @days_left = (@deathday.to_date - @date_today.to_date).to_i
-    @weeks_left = @days_left/7
     @days_lived = (@date_today.to_date - @birthday.to_date).to_i
     @weeks_lived = @days_lived/7
+    @weeks_left = current_user.life_expectancy * 52 - @weeks_lived
+    # @days_left = (@deathday.to_date - @date_today.to_date).to_i
+    # @weeks_left = @days_left/7
     # @week_now = Time.now
     # @week_now.strftime("%d").to_i
     # @life_in_years = 80
