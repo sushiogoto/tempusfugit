@@ -18,7 +18,11 @@
   <div><%= f.label :country %><br />
     <%= f.country_select :country_code, as: :country %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.hidden_field :life_expectancy, value: @life_expectancy %></div>
+  <%= puts @life_expectancy %>
+
+  <div><br /><%= f.submit "Sign up" %></div>
 <% end %>
 
+<br />
 <%= render "devise/shared/links" %>
