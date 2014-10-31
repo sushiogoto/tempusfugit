@@ -15,6 +15,9 @@
   <div><%= f.label :birthday %><br />
     <%= f.date_select :birthday, start_year: 1900 %></div>
 
+  <div><%= f.label :country %><br />
+    <%= f.country_select :country_code, as: :country %></div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
