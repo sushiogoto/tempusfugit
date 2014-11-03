@@ -6,6 +6,7 @@ class WeeksController < ApplicationController
   # GET /weeks.json
   def index
     @weeks = current_user.weeks
+    @week_ids = @weeks.map { |key, value| key }
     # @total_weeks = @weeks.length
     @year_now = Time.now
     @year_now.strftime("%Y").to_i
@@ -15,6 +16,8 @@ class WeeksController < ApplicationController
     @days_lived = (@date_today.to_date - @birthday.to_date).to_i
     @weeks_lived = @days_lived/7
     @weeks_left = current_user.life_expectancy * 52 - @weeks_lived
+    @weeks_lived_array = @week_ids[0..@weeks_lived]
+    @weeks_left_array = @week_ids[@weeks_lived..-1]
     # @days_left = (@deathday.to_date - @date_today.to_date).to_i
     # @weeks_left = @days_left/7
     # @week_now = Time.now
@@ -32,6 +35,10 @@ class WeeksController < ApplicationController
   # GET /weeks/new
   def new
     @week = Week.new
+  end
+
+  def show
+    @week = Week.find(params[:id])
   end
 
   # GET /weeks/1/edit

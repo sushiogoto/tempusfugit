@@ -1,5 +1,5 @@
 $ ->
-  $("form").submit (event) ->
+  $("#sign_up").click (event) ->
     event.preventDefault()
     alert('sup')
     country = $("#user_country_code").val()

@@ -1,14 +1,18 @@
 <h1>YOUR LIFE IN WEEKS</h1>
 
+
+<%= print(@week_ids) %>
+
 <div class="weeks_table">
 
+
   <div class="row">
-    <% (0..@weeks_lived).each do |week| %>
-        <div class='sq alive live'></div>
+    <% @weeks_lived_array.each do |week| %>
+        <td><%= link_to raw('<div class="sq alive live"></div>'), edit_week_path(week) %></td>
     <% end %>
 
-    <% (0..@weeks_left).each do |week| %>
-        <div class='sq alive remain'></div>
+    <% @weeks_left_array.each do |week| %>
+        <td><%= link_to raw('<div class="sq alive remain"></div>'), edit_week_path(week) %></td>
     <% end %>
   </div>
 
